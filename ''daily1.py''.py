@@ -4,7 +4,8 @@
 #List - ordered collection of items, mutable(changeable) : [square ]
 list1 = [1,2,3,4,5,'a','Dhiraj',"Upadhyaya",True]  #list type of object with data
 list1  #print when through spyder
-type(list1)  #type of object
+type(list1) 
+ #type of object
 print(list1)  #print when running complete file
 list1
 sorted([100000,5,3,2,4,5,324,43,4,4,3,23,434,53442,244,2245224,523])
@@ -116,7 +117,7 @@ list1
 for i in list1:
     print(i)
 
-  
+print
 for i in list1:    print(i , end ='\t')
 #print?  #help
 for i in list2:    print(i, 'DU' , sep='-' , end ='xxx')
@@ -145,6 +146,7 @@ marks = [ 90, 50, 60, 70 ]
 # using zip() to map values 
 mapped = zip(name, rollno, marks) 
 mapped
+print(mapped)
 type(mapped)
 # converting values to print as set 
 mappedSet = set(mapped) 
@@ -163,13 +165,15 @@ numpy.array([10,20])
 numpy.array([list1])
 
 import numpy as np #np is alias
-np1 = np.arange(1,10)
+np1 = np.arange(1,10,2)
 np1
-
+help(np.arange)
 x=np.arange(start=1,stop=1000000,step=2)
 len(x)
 x[1:100]
-x[1:50:10]
+x[1:50:10]# start with 1, step of 10, end with 50 th
+#1, 10,20,30,40
+x[[1,11,21,31,41]]
 np
 np.mean(np.arange(1,10000000))
 np1
@@ -194,11 +198,13 @@ x
 x%2 == 0
 x%3 == 0 #true 
 len(np3)
+np3
 np3.reshape((-1,1))  #1 column from 2 column
 np3.reshape((-1))
 np3.reshape((-1,2))
 np3.reshape((-1,3))  #error
 np3.reshape((-1,4))
+
 
 #http://cs231n.github.io/python-numpy-tutorial/
 #%% #pandas - dataframe, excel like
@@ -209,13 +215,14 @@ import pandas as pd
 help(pd)
 dir(pd)
 
-df1 = pd.DataFrame({'rollno':[1,2,3,4], 'name': [ "Dhiraj", "Kounal", "Akhil", "Pooja" ], 'marks':[ 40, 50, 60.5, 70 ], 'gender':['M', 'M','M', 'F']})
+df1 = pd.DataFrame({'rollno':[1,2,3,4,5], 'name': [ "Dhiraj", "Kounal", "Akhil", "Pooja" ,"Anika"], 'marks':[ 40, 50, 60.5, 70,60 ], 'gender':['M', 'M','M', 'F','F']})
 df1
 type(df1) 
 
 df1.columns  #colum nanes
 df1.index  #row ids/ names  - here auto created
 df1.describe() #description of numerical values
+df1.describe(include='all')
 df1.dtypes #data types
 df1.shape  # rows and columns
 df1.groupby('gender').size()
@@ -247,7 +254,9 @@ sns.pairplot(iris)  #relationship diagrams
 
 #%% #Load Inbuilt Datasets
 
-#pip install pydataset
+pip install pydataset
+import pandas as pd
+import numpy as np
 from pydataset import data
 data('iris')
 data('mtcars')
@@ -275,13 +284,14 @@ data.to_excel(writer, sheet_name='sheet2')
 writer.save()
 
 #%%
+import pandas as pd
 help(data.to_excel)
 #load from CSV and Excel
 data2a  #not defined
 data2a = pd.read_csv('mtcars.csv') #when csv is in project folder
 data2a
 data2b #not defined
-data2b = pd.read_csv('E:/analytics/projects/pyanalytics/mtcars.csv')
+data2b = pd.read_csv('D:/Analytics/projects/pyanalytics/mtcars.csv')
 data2b
 #csv in any other location - full path
 data2b
